@@ -25,7 +25,6 @@ public class NotificationUtil {
 
     public static final int REMOTE_INPUT_ID = 1247;
 
-
     public static final String LABEL_REPLY = "Reply";
     public static final String LABEL_ARCHIVE = "Archive";
     public static final String REPLY_ACTION = "com.hitherejoe.notifi.util.ACTION_MESSAGE_REPLY";
@@ -83,9 +82,26 @@ public class NotificationUtil {
     }
 
     public void showStandardHeadsUpNotification(Context context) {
+
+        PendingIntent archiveIntent = PendingIntent.getActivity(context,
+                ARCHIVE_INTENT_ID,
+                getMessageReplyIntent(context, LABEL_ARCHIVE),
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Action replyAction =
+                new NotificationCompat.Action.Builder(android.R.drawable.sym_def_app_icon,
+                        LABEL_REPLY, archiveIntent)
+                        .build();
+        NotificationCompat.Action archiveAction =
+                new NotificationCompat.Action.Builder(android.R.drawable.sym_def_app_icon,
+                        LABEL_ARCHIVE, archiveIntent)
+                        .build();
+
         NotificationCompat.Builder notificationBuider = createNotificationBuider(
-                context, "Standard Notification", "This is just a standard notification!");
+                context, "Heads up!", "This is a normal heads up notification");
         notificationBuider.setPriority(Notification.PRIORITY_HIGH).setVibrate(new long[0]);
+        notificationBuider.addAction(replyAction);
+        notificationBuider.addAction(archiveAction);
 
         Intent push = new Intent();
         push.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -93,15 +109,15 @@ public class NotificationUtil {
 
         PendingIntent fullScreenPendingIntent = PendingIntent.getActivity(context, 0,
                 push, PendingIntent.FLAG_CANCEL_CURRENT);
-        notificationBuider
-                .setFullScreenIntent(fullScreenPendingIntent, true);
+        notificationBuider.setFullScreenIntent(fullScreenPendingIntent, true);
         showNotification(context, notificationBuider.build(), 0);
     }
 
     public void showCustomLayoutHeadsUpNotification(Context context) {
+
         RemoteViews remoteViews = createRemoteViews(context,
                 R.layout.notification_custom_content, R.drawable.ic_phonelink_ring_primary_24dp,
-                "Custom notification", "This is a custom layout",
+                "Heads up!", "This is a custom heads-up notification",
                 R.drawable.ic_priority_high_primary_24dp);
 
         Intent notificationIntent = new Intent(Intent.ACTION_VIEW);
@@ -112,9 +128,16 @@ public class NotificationUtil {
         builder.setCustomContentView(remoteViews)
                 .setStyle(new Notification.DecoratedCustomViewStyle())
                 .setPriority(Notification.PRIORITY_HIGH)
-                .setVibrate(new long[]{1000, 1000, 1000, 1000, 1000})
+                .setVibrate(new long[0])
                 .setContentIntent(contentIntent);
 
+        Intent push = new Intent();
+        push.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        push.setClass(context, MainActivity.class);
+
+        PendingIntent fullScreenPendingIntent = PendingIntent.getActivity(context, 0,
+                push, PendingIntent.FLAG_CANCEL_CURRENT);
+        builder.setFullScreenIntent(fullScreenPendingIntent, true);
         showNotification(context, builder.build(), 0);
     }
 
