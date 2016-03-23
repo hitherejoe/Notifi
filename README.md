@@ -63,12 +63,6 @@ Big notification layouts:
     <img src="images/custom_notification_big.png" alt="Big Custom Notification"/>
 </p>
 
-and Media notification layouts:
-
-<p align="center">
-    <img src="images/custom_notification_media.png" alt="Media Custom Notification"/>
-</p>
-
 
 Requirements
 ------------
