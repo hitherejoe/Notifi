@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Notifi</string>
+
+    <string name="label_message">Message</string>
+
+    <string name="text_label_reply">Reply</string>
+
+    <string name="label_you_clicked">You clicked: %s</string>
+    <string name="label_you_typed">You typed: %s</string>
+
+    <string name="label_standard_notification">Show standard notification</string>
+    <string name="label_bundled_notification">Show bundled notifications</string>
+    <string name="label_direct_reply_notification">Show direct reply notification</string>
+    <string name="label_custom_content_view_notification">Show custom content view notification</string>
+    <string name="label_custom_content_big_view_notification">Show custom content big view notification</string>
+    <string name="label_custom_content_normal_and_big_view_notification">Show custom normal and big content views notification</string>
+    <string name="label_custom_media_content_view_notification">Show custom media content view notifications</string>
+    <string name="label_heads_up_notification">Show heads up notification</string>
+    <string name="label_heads_up_custom_layout_notification">Show custom layout heads up notification</string>
+
+</resources>
