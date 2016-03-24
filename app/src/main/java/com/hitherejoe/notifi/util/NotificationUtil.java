@@ -202,7 +202,7 @@ public class NotificationUtil {
 
     public void showCustomBothContentViewNotification(Context context) {
         RemoteViews remoteViews = createRemoteViews(context, R.layout.notification_custom_content,
-                R.drawable.ic_phonelink_ring_primary_24dp, "Custom media notification",
+                R.drawable.ic_phonelink_ring_primary_24dp, "Custom notification",
                 "This is a custom layout", R.drawable.ic_priority_high_primary_24dp);
 
         RemoteViews bigRemoteView = createRemoteViews(context,
@@ -260,7 +260,7 @@ public class NotificationUtil {
     }
 
     private Intent getMessageReplyIntent(Context context, String label) {
-        return MessageActivity.getStartIntent(context)
+        return new Intent()
                 .addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
                 .setAction(REPLY_ACTION)
                 .putExtra(KEY_PRESSED_ACTION, label);

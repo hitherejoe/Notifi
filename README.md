@@ -26,7 +26,7 @@ Bundled Notifications
 Bundled notifications that appear grouped when a group ID has been set for each notification.
 
 <p align="center">
-    <img src="images/bundled_notifications.png" alt="Bundled Notifications"/>
+    <img src="images/bundled_notifications.gif" alt="Bundled Notifications"/>
 </p>
 
 Heads Up Notifications
@@ -35,7 +35,7 @@ Heads Up Notifications
 Heads-up notifications appear above the users current activity, provided the screen is on. As of andorid N, we can now use custom layouts for these notifications.
 
 <p align="center">
-    <img src="images/heads_up_notifications.png" alt="Heads Up Notification"/>
+    <img src="images/heads_up.gif" alt="Heads Up Notification"/>
 </p>
 
 Direct Reply Notification
@@ -44,23 +44,17 @@ Direct Reply Notification
 Direct-reply notifications allow us to provide user input from a notification. We can then retrieve this input from the launched intent.
 
 <p align="center">
-    <img src="images/direct_reply_notification.png" alt="Direct Reply Notification"/>
+    <img src="images/direct_reply.gif" alt="Direct Reply Notification"/>
 </p>
 
 
 Custom View Notifications
 =========================
 
-We can now use custom views for notifications as of Android N. These can be for Small notification layouts:
+We can now use custom views for notifications as of Android N. These can be for both collapsed and expanded notification layouts:
 
 <p align="center">
-    <img src="images/custom_notification_small.png" alt="Small Custom Notification"/>
-</p>
-
-Big notification layouts:
-
-<p align="center">
-    <img src="images/custom_notification_big.png" alt="Big Custom Notification"/>
+    <img src="images/custom_views_notification.gif" alt="Custom Views Notification"/>
 </p>
 
 
