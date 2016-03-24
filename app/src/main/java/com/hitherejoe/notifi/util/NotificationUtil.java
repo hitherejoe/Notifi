@@ -10,11 +10,11 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.RemoteInput;
+import android.support.v4.content.ContextCompat;
 import android.widget.RemoteViews;
 
 import com.hitherejoe.notifi.R;
 import com.hitherejoe.notifi.ui.main.MainActivity;
-import com.hitherejoe.notifi.ui.message.MessageActivity;
 
 import javax.inject.Inject;
 
@@ -45,7 +45,7 @@ public class NotificationUtil {
 
         PendingIntent archiveIntent = PendingIntent.getActivity(context,
                 ARCHIVE_INTENT_ID,
-                getMessageReplyIntent(context, LABEL_ARCHIVE),
+                getMessageReplyIntent(LABEL_ARCHIVE),
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Action replyAction =
@@ -85,8 +85,7 @@ public class NotificationUtil {
 
         PendingIntent archiveIntent = PendingIntent.getActivity(context,
                 ARCHIVE_INTENT_ID,
-                getMessageReplyIntent(context, LABEL_ARCHIVE),
-                PendingIntent.FLAG_UPDATE_CURRENT);
+                getMessageReplyIntent(LABEL_ARCHIVE), PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Action replyAction =
                 new NotificationCompat.Action.Builder(android.R.drawable.sym_def_app_icon,
@@ -148,12 +147,12 @@ public class NotificationUtil {
 
         PendingIntent replyIntent = PendingIntent.getActivity(context,
                 REPLY_INTENT_ID,
-                getMessageReplyIntent(context, LABEL_REPLY),
+                getMessageReplyIntent(LABEL_REPLY),
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         PendingIntent archiveIntent = PendingIntent.getActivity(context,
                 ARCHIVE_INTENT_ID,
-                getMessageReplyIntent(context, LABEL_ARCHIVE),
+                getMessageReplyIntent(LABEL_ARCHIVE),
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Action replyAction =
@@ -256,10 +255,11 @@ public class NotificationUtil {
                 .setContentTitle(title)
                 .setContentText(message)
                 .setLargeIcon(largeIcon)
+                .setColor(ContextCompat.getColor(context, R.color.primary))
                 .setAutoCancel(true);
     }
 
-    private Intent getMessageReplyIntent(Context context, String label) {
+    private Intent getMessageReplyIntent(String label) {
         return new Intent()
                 .addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
                 .setAction(REPLY_ACTION)

@@ -26,7 +26,13 @@ Bundled Notifications
 Bundled notifications that appear grouped when a group ID has been set for each notification.
 
 <p align="center">
-    <img src="images/bundled_notifications.gif" alt="Bundled Notifications"/>
+    <img src="images/bundled_notifs.gif" alt="Bundled Notifications"/>
+</p>
+
+We can also display actions for notifications that are bundled.
+
+<p align="center">
+    <img src="images/bundled_notifications.gif" alt="Bundled Notifications with Actions"/>
 </p>
 
 Heads Up Notifications
